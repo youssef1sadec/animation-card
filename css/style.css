@@ -1,0 +1,137 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+img{
+    max-width: 100%;
+}
+
+body{
+    margin-top: 200px;
+    font-family: sans-serif;
+    max-height: 100vh;
+    display: grid;
+    place-content: center;
+    background-color: darkslategray;
+    color: lightslategrey;
+}
+.rank{
+    z-index:10 ;
+    background:rgba(0, 0, 0, 0.6);
+    position: absolute;
+    font-weight: bold;
+    right:0.5em;
+    top:0;
+    padding:.5em .5em .75em .5em;
+    clip-path: polygon(100% 0, 100% 100%, 49% 74%, 0 100%, 0 0);
+   font-size: .95rem;
+}
+.streamers{
+    display: flex;
+}
+.streamers img{
+    height: 2.2em;
+    border-radius:50% ;
+    
+}
+
+h1,h2,h3,p{
+margin: 0 ;
+
+}
+
+.front .streamers img:nth-of-type(1){
+  transform: translateX(50%);
+  z-index: 1;
+}
+.front .streamers img:nth-of-type(2){
+    transform: translateX(30%);
+  }
+
+.front .streamers img{
+    border: 3px solid black;
+
+}
+.front .name{
+    text-align:left;
+    margin: .5em 0;
+}
+.game{
+  
+    position: relative;
+    width: 12.5em;
+}
+.stats{
+display: flex;
+justify-content: space-between;
+
+
+align-items: center;
+}
+.streamers{
+    display: flex;
+}
+/*////////////////////////?*/
+.back{
+    /* display:none; */
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.background{
+background: #234;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+z-index: -1;
+opacity: 0;
+transform:scale(.2,.9); 
+transition:all 1s 
+
+}
+.game:hover .front{
+transition:  0.7s;
+transform:translateY(-40%) scaleY(.8)
+}
+.game:hover .name{
+animation:gameName 250ms forwards;
+}
+.game:hover .stats{
+opacity:0;
+}
+.game:hover .rank{
+transition:0.9s;
+transform :translate(160%,-65%);
+}
+.game:hover .background{
+opacity:100ms linear; 
+opacity: 1;
+transform: scale(1.5,1.2)
+}
+.game:hover .back{
+    opacity: 1;
+    padding:10px;
+}
+
+@keyframes gameName{
+0% {
+     text-align: left;
+    opacity: 1;
+    }
+20% { 
+    text-align: left;
+    opacity: 1;
+}
+65%{
+    text-align: center;
+    opacity: 0;
+    transform: scale(1.2)
+}
+100%{
+    text-align:center;
+    opacity: 1;
+}
+}
